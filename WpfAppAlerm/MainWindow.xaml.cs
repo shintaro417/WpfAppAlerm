@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Text.RegularExpressions;
+using Microsoft.Win32;
 
 namespace WpfAppAlerm
 {
@@ -105,6 +106,51 @@ namespace WpfAppAlerm
                 ErrMsg("時刻を正しく入力してください。例) 12:34");
                 timeText.Focus();
             }
+        }
+        /// <summary>
+        /// Window起動時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// window終了時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// 一覧ファイル保存
+        /// </summary>
+        /// <remarks>
+        /// 前提:SaveConfigPathに実在するパスが存在すること
+        /// </remarks>
+        private void SaveConfigFIle()
+        {
+            using (var sw = new StreamWriter(Properties.Settings.Default.SaveConfigPath, append: false, encoding: Encoding.UTF8))
+            {
+                //リストボックスの内容をファイルに出力
+                foreach (string item in listBox.Items)
+                {
+                    //1行書き込み
+                    sw.WriteLine(item);
+
+                }
+            }
+        }
+        /// <summary>
+        /// ファイル保存ダイアログを表示してファイル保存
+        /// </summary>
+        private void ShowSaveDialoToConfigFile()
+        {
+            //ダイアログ生成
+            var dlg = new SaveFileDialog();
         }
     }
 }
