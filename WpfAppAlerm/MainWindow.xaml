@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppAlerm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" ResizeMode="CanResizeWithGrip">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="5,10,5,2"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5,0"/>
+        </Style>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid FocusManager.FocusedElement="{Binding ElementName=timeText}" Background="LightCyan">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel>
+            <Label Content="時刻"/>
+            <TextBox x:Name="timeText" MaxLength="5" Width="60"/>
+            
+            <Label Content="メッセージ"/>
+            <TextBox Height="60" Width="200" x:Name="msgText" Text="TextBox" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        </StackPanel>
+        
+        <Button Grid.Column="1" Content="追加 >" IsDefault="True" Height="30" VerticalAlignment="Top" Margin="5,50" Padding="5"/>
+        <ListBox Grid.Column="2" Margin="10" x:Name="listBox"/>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" Background="PaleTurquoise">
+            <RadioButton x:Name="alarmOn" Content="アラームON"/>
+            <RadioButton x:Name="alarmOff" Content="アラームOFF" IsChecked="True"/>
+        </StackPanel>
 
     </Grid>
 </Window>
