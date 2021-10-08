@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppAlerm"
+        xmlns:prop="clr-namespace:WpfAppAlerm.Properties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="CanResizeWithGrip">
+        Title="{x:Static prop:Resources.AppTitle}" Height="450" Width="800" ResizeMode="CanResizeWithGrip">
 
     <Window.Resources>
         <Style TargetType="Label">
@@ -39,10 +40,10 @@
             <TextBox x:Name="timeText" MaxLength="5" Width="60"/>
             
             <Label Content="メッセージ"/>
-            <TextBox Height="60" Width="200" x:Name="msgText" Text="TextBox" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Height="60" Width="200" x:Name="msgText" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
         </StackPanel>
         
-        <Button Grid.Column="1" Content="追加 >" IsDefault="True" Height="30" VerticalAlignment="Top" Margin="5,50" Padding="5"/>
+        <Button Grid.Column="1" Content="追加 >" IsDefault="True" Height="30" VerticalAlignment="Top" Margin="5,50" Padding="5" Click="Button_Click"/>
         <ListBox Grid.Column="2" Margin="10" x:Name="listBox"/>
         
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" Background="PaleTurquoise">
