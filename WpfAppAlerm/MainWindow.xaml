@@ -48,8 +48,8 @@
         <ListBox Grid.Column="2" Margin="10" x:Name="listBox"/>
         
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" Background="PaleTurquoise">
-            <RadioButton x:Name="alarmOn" Content="アラームON"/>
-            <RadioButton x:Name="alarmOff" Content="アラームOFF" IsChecked="True"/>
+            <RadioButton x:Name="alarmOn" Content="アラームON" Checked="alarmOnOff_Checked"/>
+            <RadioButton x:Name="alarmOff" Content="アラームOFF" IsChecked="True" Checked="alarmOnOff_Checked"/>
         </StackPanel>
 
     </Grid>
